@@ -156,11 +156,13 @@
 			function makeApiCall() {
 				gapi.client.people.people.get({
 					'resourceName': 'people/me',
-					'requestMask.includeField': 'person.names'
+					'requestMask.includeField': 'person.names',
+					'requestMask.includeField': 'person.image'
 				}).then(function(resp) {
 					var p = document.createElement('p');
 					var name = resp.result.names[0].givenName;
 					var last = resp.result.names[0].familyName;
+					var image = resp.result.image[0].getUrl;
 					p.appendChild(document.createTextNode('Voluntario: '+name+' '+last));
 					document.getElementById('content').appendChild(p);
 					//<![CDATA[
