@@ -160,6 +160,7 @@
 				}).then(function(resp) {
 					var p = document.createElement('p');
 					var name = resp.result.names[0].givenName;
+					var image = resp.image.url;
 					p.appendChild(document.createTextNode('Voluntario: '+name));
 					document.getElementById('content').appendChild(p);
 					//<![CDATA[
