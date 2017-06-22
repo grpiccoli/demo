@@ -118,7 +118,9 @@
 			var authorizeButton = document.getElementById('authorize-button');
 			var signoutButton = document.getElementById('signout-button');
 			windows.onload = function(){
-				gapi.auth2.getAuthInstance().signOut();
+				authorizeButton.style.display = 'block';
+				signoutButton.style.display = 'none';
+				handleSignoutClick;
 			}
 			function handleClientLoad() {
 				// Load the API client and auth2 library
