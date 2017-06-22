@@ -117,11 +117,6 @@
 			var scopes = 'profile';
 			var authorizeButton = document.getElementById('authorize-button');
 			var signoutButton = document.getElementById('signout-button');
-			windows.onload = function(){
-				authorizeButton.style.display = 'block';
-				signoutButton.style.display = 'none';
-				handleSignoutClick;
-			}
 			function handleClientLoad() {
 				// Load the API client and auth2 library
 				gapi.load('client:auth2', initClient);
@@ -136,7 +131,7 @@
 					// Listen for sign-in state changes.
 					gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 					// Handle the initial sign-in state.
-					updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+					updateSigninStatus(gapi.auth2.getAuthInstance().signOut);
 					authorizeButton.onclick = handleAuthClick;
 					signoutButton.onclick = handleSignoutClick;
 				});
