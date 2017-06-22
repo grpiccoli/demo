@@ -160,8 +160,8 @@
 				}).then(function(resp) {
 					var p = document.createElement('p');
 					var name = resp.result.names[0].givenName;
-					alert(resp.result.names.toString());
-					p.appendChild(document.createTextNode('Voluntario: '+name));
+					var last = resp.result.names[0].familyName;
+					p.appendChild(document.createTextNode('Voluntario: '+name+' '+last));
 					document.getElementById('content').appendChild(p);
 					//<![CDATA[
 					var findMeButton = $('.find-me');
